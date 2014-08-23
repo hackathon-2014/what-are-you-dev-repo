@@ -1,8 +1,7 @@
-package com.tweepons.app.activity;
+package com.tweepons.app;
 
 import android.app.Activity;
 import android.os.Bundle;
-import com.tweepons.app.R;
 
 public class MainActivity extends Activity
 {
