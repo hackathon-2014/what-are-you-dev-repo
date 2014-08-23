@@ -7,7 +7,7 @@ angular.module('starter.controllers')
 			result.me()
 			.done(function(response) {
 				console.log(response);
-				$scope.$emit('Login', {user: response});
+				$scope.$emit('Login', response);
 			})
 			.fail(function(error) {
 				console.log(error)
