@@ -134,10 +134,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   }
 
   $rootScope.$on('Login', function(event, user) {
-    console.log('logged in');
-    console.log(user);
-    $window.user = user;
-    $window.localStorage['user'] = JSON.stringify(user);
+    alert('hello');
+    // $window.user = user;
+    // if ($window && $window.localStorage) {
+    //   $window.localStorage['user'] = JSON.stringify(user);
+    // }
     $state.go('tab.new');
   })
 });

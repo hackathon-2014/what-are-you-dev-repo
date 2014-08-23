@@ -4,17 +4,18 @@ angular.module('starter.controllers')
 	$scope.tryLogin = function() {
 		OAuth.popup('twitter')
 		.done(function(result) {
+			alert('done 1');
 			result.me()
 			.done(function(response) {
-				console.log(response);
-				$scope.$emit('Login', response);
+				alert('done 2');
+				//$scope.$emit('Login', response);
 			})
 			.fail(function(error) {
-				console.log(error)
+				alert('fail 2');
 			});
 		})
 		.fail(function(error) {
-			console.log(error);
+			alert('fail 2');
 		})
 	}
 });
