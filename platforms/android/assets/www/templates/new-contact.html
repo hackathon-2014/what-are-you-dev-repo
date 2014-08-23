@@ -1,0 +1,15 @@
+<!--
+  This template loads for the 'tab.new-contact' state (app.js)
+  'contact' is a $scope variable created in the NewContactCtrl controller (controllers.js)
+  The NewContactCtrl pulls data from the Friends service (service.js)
+  The Contacts service returns an array of friend data
+-->
+<ion-view title="{{tweepon.name}}">
+  <ion-content has-header="true" padding="true">
+    <ion-list>
+      <ion-item ng-repeat="contact in contacts" type="item-text-wrap" href="#/tab/new/{{tweepon.id}}/{{contact.id}}/review">
+        {{contact.name}}
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

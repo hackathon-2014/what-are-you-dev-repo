@@ -33,6 +33,17 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   // Each state's controller can be found in controllers.js
   $stateProvider
 
+    .state('splash', {
+      url: '/',
+      templateUrl: 'templates/splash.html'
+    })
+
+    .state('login', {
+      url: '/login',
+      templateUrl: 'templates/login.html',
+      controller: 'LoginCtrl'
+    })
+
     // setup an abstract state for the tabs directive
     .state('tab', {
       url: "/tab",
@@ -52,37 +63,82 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     })
 
-    .state('tab.friends', {
-      url: '/friends',
+    .state('tab.sent', {
+      url: '/sent',
       views: {
-        'tab-friends': {
-          templateUrl: 'templates/tab-friends.html',
-          controller: 'FriendsCtrl'
-        }
-      }
-    })
-    .state('tab.friend-detail', {
-      url: '/friend/:friendId',
-      views: {
-        'tab-friends': {
-          templateUrl: 'templates/friend-detail.html',
-          controller: 'FriendDetailCtrl'
+        'tab-sent': {
+          templateUrl: 'templates/tab-sent.html',
+          controller: 'SentCtrl'
         }
       }
     })
 
-    .state('tab.account', {
-      url: '/account',
+    .state('tab.received', {
+      url: '/received',
       views: {
-        'tab-account': {
-          templateUrl: 'templates/tab-account.html',
-          controller: 'AccountCtrl'
+        'tab-received': {
+          templateUrl: 'templates/tab-received.html',
+          controller: 'ReceivedCtrl'
         }
       }
-    });
+    })
+
+    .state('tab.new', {
+      url: '/new',
+      views: {
+        'tab-new': {
+          templateUrl: 'templates/tab-new.html',
+          controller: 'NewCtrl'
+        }
+      }
+    })
+
+    .state('tab.new-contact', {
+      url: '/new/:tweeponId/contact',
+      views: {  
+        'tab-new': {
+          templateUrl: 'templates/new-contact.html',
+          controller: 'NewCtrl'
+        }
+      }
+    })
+
+    .state('tab.new-review', {
+      url: '/new/:tweeponId/:contactId/review',
+      views: {  
+        'tab-new': {
+          templateUrl: 'templates/new-review.html',
+          controller: 'NewCtrl'
+        }
+      }
+    })
+
+    // .state('tab.account', {
+    //   url: '/account',
+    //   views: {
+    //     'tab-account': {
+    //       templateUrl: 'templates/tab-account.html',
+    //       controller: 'AccountCtrl'
+    //     }
+    //   }
+    // });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/auth');
+  $urlRouterProvider.otherwise('/login');
 
+})
+
+.run(function($rootScope, $state, $window) {
+  if (!$window.user) {
+    $state.go('login');
+  }
+
+  $rootScope.$on('Login', function(event, user) {
+    console.log('logged in');
+    console.log(user);
+    $window.user = user;
+    $window.localStorage['user'] = JSON.stringify(user);
+    $state.go('tab.new');
+  })
 });
 

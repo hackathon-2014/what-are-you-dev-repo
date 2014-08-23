@@ -3,22 +3,28 @@ angular.module('starter.controllers', [])
 .controller('DashCtrl', function($scope) {
 })
 
-.controller('FriendsCtrl', function($scope, Friends) {
-  $scope.friends = Friends.all();
+.controller('NewCtrl', function($scope, $stateParams, Tweepons, Contacts) {
+  //
+  $scope.user = JSON.parse(window.localStorage['user']);
+  alert($scope.user.name);
+  $scope.tweepons = Tweepons.all();
+  $scope.contacts = Contacts.all();
+  if ($stateParams.tweeponId) {
+  	$scope.tweepon = Tweepons.get($stateParams.tweeponId);
+  }
+  if($stateParams.contactId) {
+  	$scope.contact = Contacts.get($stateParams.contactId);
+}
 })
 
-.controller('FriendDetailCtrl', function($scope, $stateParams, Friends) {
-  $scope.friend = Friends.get($stateParams.friendId);
+.controller('NewTweeponCtrl', function($scope, $stateParams, Tweepons) {
+  $scope.tweepon = Tweepons.get($stateParams.tweeponId);
+})
+.controller('NewContactCtrl', function($scope, $stateParams, Contacts) {
+  $scope.contact = Contacts.get($stateParams.contactId);
 })
 
 .controller('AccountCtrl', function($scope) {
 })
 
-.controller('AuthCtrl', function($scope) {
-	$scope.doLogin = function() {
-		OAuth.popup('twitter')
-		.done(function(result) {
-			alert(JSON.stringify(result));
-		})
-	}
-});
+;

@@ -5,6 +5,8 @@ angular.module('starter.controllers', [])
 
 .controller('NewCtrl', function($scope, $stateParams, Tweepons, Contacts) {
   //
+  $scope.user = JSON.parse(window.localStorage['user']);
+  alert($scope.user.name);
   $scope.tweepons = Tweepons.all();
   $scope.contacts = Contacts.all();
   if ($stateParams.tweeponId) {
