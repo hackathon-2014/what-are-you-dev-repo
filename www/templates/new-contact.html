@@ -8,6 +8,14 @@
   <ion-content has-header="true" padding="true">
 <h1>{{tweepon.name}}</h1>
     <ion-list>
+    <div class="item item-input-inset">
+      <label class="item-input-wrapper">
+        <input type="text" placeholder="@Twee-pons">
+      </label>
+      <button class="button button-small" ng-click="tweet()">
+        Tweet
+      </button>
+    </div>
       <ion-item ng-repeat="contact in contacts" type="item-text-wrap" href="#/user/new/{{tweepon.id}}/{{contact.id}}/review">
         {{contact.name}}
       </ion-item>

@@ -12,9 +12,18 @@ angular.module('starter.controllers', [])
   if ($stateParams.tweeponId) {
   	$scope.tweepon = Tweepons.get($stateParams.tweeponId);
   }
-  if($stateParams.contactId) {
-  	$scope.contact = Contacts.get($stateParams.contactId);
-}
+  	if($stateParams.contactId) {
+  		$scope.contact = Contacts.get($stateParams.contactId);
+	}
+
+	$scope.tweet = function() {
+		var id = $stateParams.tweeponId;
+		var tweet = {
+			status: "#Tweepon!: " + $scope.tweepons[id].name,
+
+		};
+		console.log(tweet);
+	}
 })
 
 .controller('NewTweeponCtrl', function($scope, $stateParams, Tweepons) {
