@@ -1,12 +1,13 @@
 angular.module('starter.controllers')
 
-.controller('AuthCtrl', function($scope) {
-	$scope.doLogin = function() {
+.controller('LoginCtrl', function($scope, $window) {
+	$scope.tryLogin = function() {
 		OAuth.popup('twitter')
 		.done(function(result) {
 			result.me()
 			.done(function(response) {
-				console.log(response.name);
+				console.log(response);
+				$scope.$emit('Login', {user: response});
 			})
 			.fail(function(error) {
 				console.log(error)
