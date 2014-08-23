@@ -7,7 +7,7 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, $window, $state, $rootScope) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -20,8 +20,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     }
 
     if (window.OAuth) {
-      OAuth.initialize('zSqtPiJoJEQV2c3OeR_PndfTmxE');
+      window.OAuth.initialize('zSqtPiJoJEQV2c3OeR_PndfTmxE');
     }
+
+    if (!$window.user) {
+      $state.go('login');
+    }
+
+    $rootScope.$on('Login', function(event, user) {
+      $state.go('tab.new');
+    })
   });
 })
 
@@ -127,19 +135,5 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   $urlRouterProvider.otherwise('/login');
 
 })
-
-.run(function($rootScope, $state, $window) {
-  if (!$window.user) {
-    $state.go('login');
-  }
-
-  $rootScope.$on('Login', function(event, user) {
-    alert('hello');
-    // $window.user = user;
-    // if ($window && $window.localStorage) {
-    //   $window.localStorage['user'] = JSON.stringify(user);
-    // }
-    $state.go('tab.new');
-  })
-});
+;
 

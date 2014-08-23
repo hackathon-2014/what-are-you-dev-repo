@@ -1,21 +1,20 @@
 angular.module('starter.controllers')
 
-.controller('LoginCtrl', function($scope, $window) {
+.controller('LoginCtrl', function($scope, $window, $state) {
 	$scope.tryLogin = function() {
 		OAuth.popup('twitter')
 		.done(function(result) {
-			alert('done 1');
 			result.me()
 			.done(function(response) {
-				alert('done 2');
-				//$scope.$emit('Login', response);
+				//alert('done');
+				$scope.$emit('Login', response);
 			})
 			.fail(function(error) {
-				alert('fail 2');
+				alert(error.message);
 			});
 		})
 		.fail(function(error) {
-			alert('fail 2');
+			alert(error.message);
 		})
 	}
 });
