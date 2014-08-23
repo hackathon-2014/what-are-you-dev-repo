@@ -92,6 +92,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     })
 
+    .state('tab.new-  ', {
+      url: '/new/:tweeponId/contact',
+      views: {  
+        'tab-new': {
+          templateUrl: 'templates/new-contact.html',
+          controller: 'NewContactsCtrl'
+        }
+      }
+    })
+
     // .state('tab.account', {
     //   url: '/account',
     //   views: {

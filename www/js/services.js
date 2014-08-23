@@ -23,4 +23,25 @@ angular.module('starter.services', [])
       return tweepons[tweeponId];
     }
   }
+})
+.factory('Contacts', function() {
+  // Might use a resource here that returns a JSON array
+
+  // Some fake testing data
+  var contacts = [
+    { id: 0, name: 'Jake Johnson' },
+    { id: 1, name: 'Francis Ani' },
+    { id: 2, name: 'Nic Silva' },
+    { id: 3, name: 'Yar' }
+  ];
+
+  return {
+    all: function() {
+      return contacts;
+    },
+    get: function(tweeponId) {
+      // Simple index lookup
+      return contacts[contactId];
+    }
+  }
 });
