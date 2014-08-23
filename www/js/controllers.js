@@ -8,12 +8,6 @@ angular.module('starter.controllers', [])
   $scope.tweepons = Tweepons.all();
   $scope.contacts = Contacts.all();
 })
-.controller('SentCtrl', function($scope) {
-  //
-})
-.controller('ReceivedCtrl', function($scope) {
-  //
-})
 
 .controller('NewTweeponCtrl', function($scope, $stateParams, Tweepons) {
   $scope.tweepon = Tweepons.get($stateParams.tweeponId);
