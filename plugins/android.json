@@ -15,6 +15,14 @@
                         {
                             "xml": "<feature name=\"Device\"><param name=\"android-package\" value=\"org.apache.cordova.device.Device\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"InAppBrowser\"><param name=\"android-package\" value=\"org.apache.cordova.inappbrowser.InAppBrowser\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<access origin=\"https://oauth.io\" />",
+                            "count": 1
                         }
                     ]
                 }
@@ -30,7 +38,14 @@
         },
         "org.apache.cordova.device": {
             "PACKAGE_NAME": "com.ionicframework.tweepons718542"
+        },
+        "com.oauthio.plugins.oauthio": {
+            "PACKAGE_NAME": "com.ionicframework.tweepons718542"
         }
     },
-    "dependent_plugins": {}
+    "dependent_plugins": {
+        "org.apache.cordova.inappbrowser": {
+            "PACKAGE_NAME": "com.ionicframework.tweepons718542"
+        }
+    }
 }

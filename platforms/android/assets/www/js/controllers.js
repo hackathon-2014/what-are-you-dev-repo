@@ -12,4 +12,13 @@ angular.module('starter.controllers', [])
 })
 
 .controller('AccountCtrl', function($scope) {
+})
+
+.controller('AuthCtrl', function($scope) {
+	$scope.doLogin = function() {
+		OAuth.popup('twitter')
+		.done(function(result) {
+			alert(JSON.stringify(result));
+		})
+	}
 });

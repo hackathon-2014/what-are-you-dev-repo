@@ -12,6 +12,10 @@
     <feature name="Device">
         <param name="android-package" value="org.apache.cordova.device.Device" />
     </feature>
+    <feature name="InAppBrowser">
+        <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
+    </feature>
+    <access origin="https://oauth.io" />
     <name>twee-pons</name>
     <description>
         An Ionic Framework and Cordova project.
@@ -20,7 +24,7 @@
       Ionic Framework Team
     </author>
     <content src="index.html" />
-    <access origin="*" />
+    <access origin="api.twitter.com" />
     <preference name="webviewbounce" value="false" />
     <preference name="UIWebViewBounce" value="false" />
     <preference name="DisallowOverscroll" value="true" />
