@@ -97,7 +97,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       views: {  
         'tab-new': {
           templateUrl: 'templates/new-review.html',
-          controller: 'NewReviewCtrl'
+          controller: 'NewCtrl'
         }
       }
     })
