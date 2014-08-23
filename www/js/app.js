@@ -48,34 +48,55 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     })
 
-    .state('tab.friends', {
-      url: '/friends',
+    .state('tab.sent', {
+      url: '/sent',
       views: {
-        'tab-friends': {
-          templateUrl: 'templates/tab-friends.html',
-          controller: 'FriendsCtrl'
-        }
-      }
-    })
-    .state('tab.friend-detail', {
-      url: '/friend/:friendId',
-      views: {
-        'tab-friends': {
-          templateUrl: 'templates/friend-detail.html',
-          controller: 'FriendDetailCtrl'
+        'tab-sent': {
+          templateUrl: 'templates/tab-sent.html',
+          controller: 'SentCtrl'
         }
       }
     })
 
-    .state('tab.account', {
-      url: '/account',
+    .state('tab.received', {
+      url: '/received',
       views: {
-        'tab-account': {
-          templateUrl: 'templates/tab-account.html',
-          controller: 'AccountCtrl'
+        'tab-received': {
+          templateUrl: 'templates/tab-received.html',
+          controller: 'ReceivedCtrl'
         }
       }
-    });
+    })
+
+    .state('tab.new', {
+      url: '/new',
+      views: {
+        'tab-new': {
+          templateUrl: 'templates/tab-new.html',
+          controller: 'NewCtrl'
+        }
+      }
+    })
+
+    .state('tab.new-tweepon', {
+      url: '/new/:tweeponId',
+      views: {
+        'tab-new': {
+          templateUrl: 'templates/new-tweepon.html',
+          controller: 'NewTweeponCtrl'
+        }
+      }
+    })
+
+    // .state('tab.account', {
+    //   url: '/account',
+    //   views: {
+    //     'tab-account': {
+    //       templateUrl: 'templates/tab-account.html',
+    //       controller: 'AccountCtrl'
+    //     }
+    //   }
+    // });
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/auth');
