@@ -4,8 +4,9 @@
   The NewContactCtrl pulls data from the Friends service (service.js)
   The Contacts service returns an array of friend data
 -->
-<ion-view title="{{tweepon.name}}">
+<ion-view>
   <ion-content has-header="true" padding="true">
+<h1>{{tweepon.name}}</h1>
     <ion-list>
       <ion-item ng-repeat="contact in contacts" type="item-text-wrap" href="#/user/new/{{tweepon.id}}/{{contact.id}}/review">
         {{contact.name}}
