@@ -23,9 +23,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       window.OAuth.initialize('zSqtPiJoJEQV2c3OeR_PndfTmxE');
     }
 
-    if (!$window.user) {
-      $state.go('login');
-    }
+    // if (!$window.user) {
+    //   $state.go('login');
+    // }
 
     $rootScope.$on('Login', function(event, user) {
       $state.go('tab.new');
@@ -60,16 +60,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     })
 
     // Each tab has its own nav history stack:
-
-    .state('tab.auth', {
-      url: '/auth',
-      views: {
-        'tab-auth': {
-          templateUrl: 'templates/tab-auth.html',
-          controller: 'AuthCtrl'
-        }
-      }
-    })
 
     .state('tab.sent', {
       url: '/sent',

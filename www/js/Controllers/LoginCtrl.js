@@ -1,6 +1,8 @@
 angular.module('starter.controllers')
 
 .controller('LoginCtrl', function($scope, $window, $state) {
+
+	$state.go('tab.new');
 	$scope.tryLogin = function() {
 		OAuth.popup('twitter')
 		.done(function(result) {
