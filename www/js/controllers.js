@@ -3,12 +3,19 @@ angular.module('starter.controllers', [])
 .controller('DashCtrl', function($scope) {
 })
 
-.controller('FriendsCtrl', function($scope, Friends) {
-  $scope.friends = Friends.all();
+.controller('NewCtrl', function($scope, Tweepons) {
+  //
+  $scope.tweepons = Tweepons.all();
+})
+.controller('SentCtrl', function($scope) {
+  //
+})
+.controller('ReceivedCtrl', function($scope) {
+  //
 })
 
-.controller('FriendDetailCtrl', function($scope, $stateParams, Friends) {
-  $scope.friend = Friends.get($stateParams.friendId);
+.controller('NewTweeponCtrl', function($scope, $stateParams, Tweepons) {
+  $scope.tweepon = Tweepons.get($stateParams.tweeponId);
 })
 
 .controller('AccountCtrl', function($scope) {
