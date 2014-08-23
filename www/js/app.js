@@ -93,22 +93,22 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     })
 
-    .state('tab.new-tweepon', {
-      url: '/new/:tweeponId',
-      views: {
-        'tab-new': {
-          templateUrl: 'templates/new-tweepon.html',
-          controller: 'NewTweeponCtrl'
-        }
-      }
-    })
-
-    .state('tab.new-  ', {
+    .state('tab.new-contact', {
       url: '/new/:tweeponId/contact',
       views: {  
         'tab-new': {
           templateUrl: 'templates/new-contact.html',
-          controller: 'NewContactsCtrl'
+          controller: 'NewCtrl'
+        }
+      }
+    })
+
+    .state('tab.new-review', {
+      url: '/new/:tweeponId/:contactId/review',
+      views: {  
+        'tab-new': {
+          templateUrl: 'templates/new-review.html',
+          controller: 'NewCtrl'
         }
       }
     })

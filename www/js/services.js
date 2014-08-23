@@ -39,7 +39,7 @@ angular.module('starter.services', [])
     all: function() {
       return contacts;
     },
-    get: function(tweeponId) {
+    get: function(contactId) {
       // Simple index lookup
       return contacts[contactId];
     }
